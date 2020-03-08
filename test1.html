@@ -10,12 +10,14 @@
     <p><strong>Document Object Model</strong>의 줄임말 입니다.</p>
   </body>
   <script>
+    //노드 객체에서 DOM 트리 계층을 표현하는 프로퍼티
     // const str1 = document.childNodes[0].childNodes[2];
     // const str2 = document.firstChild.lastChild;
 
     //console.log('str1 -> ', str1);
     //console.log('str2 -> ', str2);
 
+    //노드 객체의 DOM 트리 계층을 가리키는 프로퍼티
     const str3 = document.children[0];
     const str4 = document.children[0].children[1].children[0];
     const str5 = document.firstElementChild.lastElementChild;
