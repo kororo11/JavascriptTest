@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test5</title>
-    <script></script>
   </head>
   <body>
     <table border="1">
@@ -26,11 +25,22 @@
       </tr>
     </table>
 
-    <input type="text" id="tdVal" />
+    <!-- <input type="text" id="tdVal" />
     <input
       type="button"
       value="td 값 가져오기"
-      onclick="td_copy(td.Val.value)"
-    />
+      onclick="td_copy(tdVal.value)"
+    /> -->
   </body>
+  <script>
+    // function td_copy(val) {
+    //   console.log('val -> ', val);
+
+    //   var str = document.getElementsByTagName('td')[val].childNodes[0]
+    //     .nodeValue;
+    //   console.log('str ->', str);
+    // }
+    var str2 = document.getElementsByTagName('td')[1].childNodes[0];
+    console.log('str2 -> ', str2);
+  </script>
 </html>
