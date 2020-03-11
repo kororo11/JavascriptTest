@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendar</title>
+    <link rel="stylesheet" href="/Calendar01/style.css" />
+    <!-- <script src="/Calendar01/app.js"></script> -->
   </head>
   <body>
     <div id="calendar_wrap">
@@ -82,5 +84,54 @@
       <a href="#" id="prev">이전달</a>
       <a href="#" id="next">다음달</a>
     </div>
+
+    <script>
+      function calendar(new_year, new_month) {
+        console.log('new_year ->', new_year); // 2020
+        console.log('new_month ->', new_month); // 3
+        var d = new Date(new_year, new_month - 1, 1),
+          d_length = 32 - new Date(new_year, new_month - 1, 32).getDate(),
+          year = d.getFullYear(),
+          month = d.getMonth(),
+          date = d.getDate(),
+          day = d.getDay();
+
+        var caption_year = document.querySelector('.year'),
+          caption_month = document.querySelector('.month');
+
+        var start_day = document.querySelectorAll('tr td');
+
+        // 테이블 초기화
+        for (var i = 0; i < start_day.length; i++) {
+          start_day[i].innerHTML = '&nbsp;';
+        }
+
+        for (let i = day; i < day + d_length; i++) {
+          start_day[i].innerHTML = date;
+          date++;
+        }
+
+        // caption 날짜 표시
+        caption_year.innerHTML = year;
+        caption_month.innerHTML = month + 1;
+      }
+
+      (function() {
+        var prev = document.getElementById('prev'),
+          next = document.getElementById('next'),
+          year = new Date().getFullYear(),
+          month = new Date().getMonth() + 1;
+
+        calendar(year, month);
+        prev.onclick = function() {
+          calendar(year, --month);
+          //console.log(month);
+        };
+        next.onclick = function() {
+          calendar(year, ++month);
+          //console.log(month);
+        };
+      })();
+    </script>
   </body>
 </html>
