@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>checkBox_03</title>
-    <script src="/checkBox/checkBox_03/checkBox_03_app.js"></script>
 </head>
 
 <body>
@@ -17,5 +16,24 @@
     <a href="javascript:agree();">동의</a>
     <a href="#">동의안함</a>
 </body>
+<script>
+    var chkBox = document.getElementsByName('agree');
+    var chk = false;
+
+    for (let i = 0; i < chkBox.length; i++) {
+        if (chkBox[i].checked) {
+            chk = true;
+        } else {
+            chk = false;
+        }
+    }
+
+    if (chk) {
+        alert('모든 약관에 동의함.');
+        return false;
+    } else {
+        alert('모든 약관에 동의해 주세요.');
+    }
+</script>
 
 </html>
