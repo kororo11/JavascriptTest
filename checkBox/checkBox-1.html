@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CheckBox</title>
+</head>
+
+<body>
+  <form>
+    <input type="checkbox" name="agree" id="chk1" /> 약관동의1
+    <input type="checkbox" name="agree" id="chk2" /> 약관동의2
+    <input type="checkbox" name="agree" id="chk3" /> 약관동의3
+  </form>
+  <a href="javascript:agree();">동의</a>
+  <a href="#">동의안함</a>
+</body>
+<script>
+  function agree() {
+    var chkbox = document.getElementsByName('agree');
+    var chk = false;
+
+    for (let i = 0; i < chkbox.length; i++) {
+      // if (chkbox[i].checked) {
+      //   chk = true;
+      // } else {
+      //   chk = false;
+      // }
+      chkbox[i].checked ? chk = true : chk = false;
+    }
+
+    // if (chk) {
+    //   alert('모든 약관에 동의함.');
+    //   return false;
+    // } else {
+    //   alert('모든 약관에 동의해 주세요.');
+    // }
+    chk ? alert('모든 약관에 동의함.') : alert('모든 약관에 동의해 주세요.');
+  }
+</script>
+
+</html>
