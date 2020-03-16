@@ -18,18 +18,14 @@
 </body>
 <script>
     function agree() {
-        // var chkBox = document.getElementsByName('agree');
-        // var chk = false;
-
-        // for (let i = 0; i < chkBox.length; i++) {
-        //     chkBox[i].checked ? chk = true : chk = false;
-        // }
-
-        // chk ? alert('모든 약관에 동의함.') : alert('모든 약관에 동의해 주세요.');
         const chkBox = document.querySelectorAll('input[type=checkbox]');
-        const checkedBox = document.querySelectorAll('input[type=checkbox]:checked');
 
-        if (checkedBox.length != chkBox.length) {
+        const chked = [].filter.call(chkBox, function (element) {
+            return element.checked
+        });
+
+        console.log(chked.length);
+        if (chked.length < chkBox.length) {
             alert('모든 약관에 동의 하지 않았습니다.');
         } else {
             alert('모든 약관에 동의 하셨습니다.');
