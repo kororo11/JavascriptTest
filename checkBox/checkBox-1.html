@@ -18,17 +18,17 @@
 </body>
 <script>
   function agree() {
-    var chkbox = document.getElementsByName('agree');
-    var chk = false;
+    //var chkbox = document.getElementsByName('agree');
+    //var chk = false;
 
-    for (let i = 0; i < chkbox.length; i++) {
-      // if (chkbox[i].checked) {
-      //   chk = true;
-      // } else {
-      //   chk = false;
-      // }
-      chkbox[i].checked ? chk = true : chk = false;
-    }
+    // for (let i = 0; i < chkbox.length; i++) {
+    //   // if (chkbox[i].checked) {
+    //   //   chk = true;
+    //   // } else {
+    //   //   chk = false;
+    //   // }
+    //   chkbox[i].checked ? chk = true : chk = false;
+    // }
 
     // if (chk) {
     //   alert('모든 약관에 동의함.');
@@ -36,7 +36,70 @@
     // } else {
     //   alert('모든 약관에 동의해 주세요.');
     // }
-    chk ? alert('모든 약관에 동의함.') : alert('모든 약관에 동의해 주세요.');
+    //chk ? alert('모든 약관에 동의함.') : alert('모든 약관에 동의해 주세요.');
+    //var textinputs = document.querySelectorAll('input[type=checkbox]');
+    //console.log('textinputs ->', textinputs);
+
+    // for (let i = 0; i < textinputs.length; i++) {
+    //   //console.log(`${i} 번째 : ${textinputs[i]}`);
+    //   console.log(textinputs[i]);
+    // }
+
+    // for (let element in textinputs) {
+    //   console.log(element, textinputs[element]);
+    // }
+
+    // var fleg = 0;
+    // for (let element of textinputs) {
+    //   if (element.checked) {
+    //     fleg++;
+    //   }
+    // }
+    // console.log(`${fleg} 개 체크 되었습니다.`);
+
+    // var checkedBox = new Array();
+    // for (let element of textinputs) {
+    //   if (element.checked) {
+    //     checkedBox.push(element);
+    //   }
+    // }
+    //console.log(`${checkedBox.length} 개 체크 되었습니다.`);
+    //console.log('checkedBox ->', checkedBox.length);
+
+    let textinputs = document.querySelectorAll('input[type=checkbox]');
+    let inputChecked = textinputs.querySelectorAll('input[type=checkbox]:checked');
+    let inputCheckedCount = [...textinputs].filter(element => element.checked).length;
+    // console.log('checkedArr(...)', [...textinputs]);
+
+
+    // console.log('textinputs', textinputs);
+    // console.log('inputChecked-checked', textinputs.checked);
+    // console.log('inputChecked', inputChecked);
+
+    var map = new Map()
+      .set(10, 'commany')
+      .set(20, 'naver');
+    console.log('map', map);
+
+
+
+    var empty = [].filter.call(textinputs, function (element) {
+      return !element.checked
+    });
+
+    // console.log('empty 의 내용 -> ', empty);
+    // if (textinputs.length == empty.length) {
+    //   alert("None filled");
+    //   return false;
+    // } 
+
+    // if (empty.length == 0) {
+    //   alert('모든 약관에 동의함.');
+    // } else if (textinputs.length >= textinputs.length) {
+    //   alert('모든 약관에 동의해 주세요.');
+    // }
+
+    //empty.length == 0 ? alert('모든 약관에 동의함.') : alert('모든 약관에 동의해 주세요.');
   }
 </script>
 
