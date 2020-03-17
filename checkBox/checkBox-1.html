@@ -9,15 +9,76 @@
 
 <body>
   <form>
+
     <input type="checkbox" name="agree" id="chk1" /> 약관동의1
     <input type="checkbox" name="agree" id="chk2" /> 약관동의2
-    <input type="checkbox" name="agree" id="chk3" /> 약관동의3
+    <input type="checkbox" name="agree" id="chk3" /> 약관동의3<br />
+    <input type="checkbox" class="btnAgree" id="btnAgree">모두 체크
+
   </form>
-  <a href="javascript:agree();">동의</a>
+  <a href=" javascript:agree();">동의</a>
   <a href="#">동의안함</a>
 </body>
 <script>
+
+  const btnAgree = document.querySelector('.btnAgree');
+  const agrees = document.getElementsByName('agree');
+
+  btnAgree.addEventListener('click', allChecked);
+
+  function allChecked(event) {
+    for (let i = 0; i < agrees.length; i++) {
+      agrees[i].checked = event.target.checked;
+    }
+
+    agrees.checked ? console.log('모두 체크 되었습니다.') : console.log('모두 체크 해제 되었습니다.');
+
+  }
+
+  // function allChecked(boolean) {
+  //   const agrees = document.getElementsByName('agree');
+  //   for (let i = 0; i < agrees.length; i++) {
+  //     agrees[i].checked = boolean;
+  //   }
+
+  //   boolean ? console.log('모두 체크 되었습니다.') : console.log('모두 체크 해제 되었습니다.');
+  // }
+
   function agree() {
+    //let textinputs = document.querySelectorAll('input[type=checkbox]');
+    // let inputChecked = document.querySelectorAll('input[type=checkbox]:checked');
+    //let inputCheckedCount = [...textinputs].filter(element => element.checked).length;
+
+
+    //console.log('btnAgree ->', btnAgree);
+
+    // var t = document.getElementById('target');
+    // t.addEventListener('click', function(event){
+    //     alert('Hello world, '+event.target.value);
+    // });
+
+
+    // if (inputCheckedCount != textinputs.length) {
+    //   console.log('모든 약관에 동의 하지 않았습니다.');
+    // } else {
+    //   console.log('축하드립니다. 모든 약관에 동의 했습니다.');
+    // }
+
+    //(textinputs.length != textinputs.checked.length) ? answer(true) : answer(false);
+    // (inputCheckedCount != textinputs.length) ? answer(true) : answer(false);
+
+    function answer(boolean) {
+      if (boolean) {
+        console.log('모든 약관에 동의 하지 않았습니다.');
+      } else {
+        console.log('축하드립니다. 모든 약관에 동의 하셨습니다.');
+      }
+    }
+
+  }
+
+
+  // function agree() {
     //var chkbox = document.getElementsByName('agree');
     //var chk = false;
 
@@ -66,26 +127,36 @@
     //console.log(`${checkedBox.length} 개 체크 되었습니다.`);
     //console.log('checkedBox ->', checkedBox.length);
 
-    let textinputs = document.querySelectorAll('input[type=checkbox]');
-    let inputChecked = textinputs.querySelectorAll('input[type=checkbox]:checked');
-    let inputCheckedCount = [...textinputs].filter(element => element.checked).length;
-    // console.log('checkedArr(...)', [...textinputs]);
+    // let textinputs = document.querySelectorAll('input[type=checkbox]');
+    // let inputChecked = document.querySelectorAll('input[type=checkbox]:checked');
+    // let inputCheckedCount = [...textinputs].filter(element => element.checked).length;
+
+    // console.log('inputCheckedCount -> ', inputCheckedCount);
+  /*
+  if (inputCheckedCount < textinputs.length) {
+    console.log('모든 약관에 동의 하지 않았습니다.');
+  } else {
+    console.log('축하드립니다. 모든 약관에 동의 했습니다.');
+  }
+  */
+
+    // inputCheckedCount < textinputs.length ? console.log('모든 약관에 동의 하지 않았습니다.') : console.log('축하드립니다. 모든 약관에 동의 하셨습니다.');
 
 
     // console.log('textinputs', textinputs);
     // console.log('inputChecked-checked', textinputs.checked);
     // console.log('inputChecked', inputChecked);
 
-    var map = new Map()
-      .set(10, 'commany')
-      .set(20, 'naver');
-    console.log('map', map);
+    // var map = new Map()
+    //   .set(10, 'commany')
+    //   .set(20, 'naver');
+    // console.log('map', map);
 
 
 
-    var empty = [].filter.call(textinputs, function (element) {
-      return !element.checked
-    });
+    // var empty = [].filter.call(textinputs, function (element) {
+    //   return !element.checked
+    // });
 
     // console.log('empty 의 내용 -> ', empty);
     // if (textinputs.length == empty.length) {
@@ -100,7 +171,7 @@
     // }
 
     //empty.length == 0 ? alert('모든 약관에 동의함.') : alert('모든 약관에 동의해 주세요.');
-  }
+  //}
 </script>
 
 </html>
