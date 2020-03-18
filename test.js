@@ -31,19 +31,29 @@
 // console.log(a);
 // console.log(b);
 
-const a = 12;
-function myFunction() {
-  console.log(a); //12
+// const a = 12;
+// function myFunction() {
+//   console.log(a); //12
 
-  const b = 13;
+//   const b = 13;
 
-  if (true) {
-    const c = 14;
-    console.log(b); // 13
-  }
-  console.log(c); // 13
-}
+//   if (true) {
+//     const c = 14;
+//     console.log(b); // 13
+//   }
+//   console.log(c); // 13
+// }
 
-myFunction();
+// myFunction();
 
 // const 는 블록 변수라서 if문 밖에서 c 를 출력할 수 없다.
+
+// 펼침 연산자
+
+function myFunction(a, b) {
+  return a + b;
+}
+
+let data = [1, 4];
+let result = myFunction(...data);
+console.log(result);
