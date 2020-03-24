@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // var i = 0;
+    // while (i < 10) {
+    //     i++;
+    //     if (i % 2 === 0) {
+    //         continue;
+    //     }
+    //     //alert(i);
+    //     console.log(i);
+
+    // }
+
+    var sayYeah = function () {
+        console.log('Yeah');
+    };
+    var a = 1;
+    var b = 'Wow';
+    var object = {
+        sayHello: function () {
+            console.log('hello');
+        },
+        sayYeah: sayYeah,
+    };
+
+    object[a + 3] = 'four';
+    object['say' + b] = function () {
+        console.log('Wow');
+    }
+    object.sayHello();
+    object.sayYeah();
+    let number = object['4'];
+    console.log(number);
+    let sound = object['sayWow'];
+    console.log(sound);
+</script>
+
+</html>
