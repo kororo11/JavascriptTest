@@ -2,3 +2,6 @@
 .vscode/settings.json
 test.js
 test.html
+
+## 폴더 무시
+test/

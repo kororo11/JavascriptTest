@@ -17,52 +17,52 @@ function deleteToDo() {
   });
   toDos = cleanToDos;
   saveToDos()
+}
+function saveToDos() {
+  localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
+}
 
-  function saveToDos() {
-    localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
+function paintToDo(text) {
+  const li = document.createElement('li');
+  const delBtn = document.createElement('button');
+  delBtn.innerText = '❌';
+  delBtn.addEventListener('click', deleteToDo);
+  const span = document.createElement('span');
+  const newId = toDos.length + 1;
+  span.innerText = text;
+  li.id = newId
+  li.appendChild(delBtn);
+  li.appendChild(span);
+  toDoList.appendChild(li);
+
+  const toDoObj = {
+    text: text,
+    id: newId
   }
+  toDos.push(toDoObj);
+  saveToDos();
+}
 
-  function paintToDo(text) {
-    const li = document.createElement('li');
-    const delBtn = document.createElement('button');
-    delBtn.innerText = '❌';
-    delBtn.addEventListener('click', deleteToDo);
-    const span = document.createElement('span');
-    const newId = toDos.length + 1;
-    span.innerText = text;
-    li.id = newId
-    li.appendChild(delBtn);
-    li.appendChild(span);
-    toDoList.appendChild(li);
+function handlesSubmit() {
+  event.preventDefault();
+  const currentValue = toDoInput.value;
+  paintToDo(currentValue);
+  toDoInput.value = '';
+}
 
-    const toDoObj = {
-      text: text,
-      id: newId
-    }
-    toDos.push(toDoObj);
-    saveToDos();
+function loadToDos() {
+  const loadedToDos = localStorage.getItem(TODOS_LS);
+  if (loadedToDos !== null) {
+    const parseToDos = JSON.parse(loadedToDos);
+    parseToDos.forEach(function (toDo) {
+      paintToDo(toDo.text);
+    })
   }
+}
 
-  function handlesSubmit() {
-    event.preventDefault();
-    const currentValue = toDoInput.value;
-    paintToDo(currentValue);
-    toDoInput.value = '';
-  }
+function init() {
+  loadToDos();
+  toDoForm.addEventListener('submit', handlesSubmit);
+}
 
-  function loadToDos() {
-    const loadedToDos = localStorage.getItem(TODOS_LS);
-    if (loadedToDos !== null) {
-      const parseToDos = JSON.parse(loadedToDos);
-      parseToDos.forEach(function (toDo) {
-        paintToDo(toDo.text);
-      })
-    }
-  }
-
-  function init() {
-    loadToDos();
-    toDoForm.addEventListener('submit', handlesSubmit);
-  }
-
-  init();
+init();
